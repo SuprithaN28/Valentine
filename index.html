@@ -8,6 +8,11 @@
                 margin: 0;
                 overflow: hidden;
                 text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
                 font-family: Arial, Helvetica, sans-serif;
                 color :white;
             }
@@ -23,13 +28,19 @@
             }
 
             h1{
-                margin-top: 80px;
-                font-size: 40px;
+                margin-bottom: 40px;
+                font-size: 55px;
+                font-weight: bold;
+                text-shadow: 0 0 15px white, 0 0 25px pink;
+            }
+
+            .button-container{
+                position: relative;
             }
 
             button{
-                padding: 15px 30px;
-                font-size: 22px;
+                padding: 15px 35px;
+                font-size: 24px;
                 margin: 20px;
                 border: none;
                 border-radius: 12px;
@@ -42,14 +53,17 @@
                 color: white;
             }
             #no{
-                background-color: #444;
+                background-color: #333;
                 color: white;
+                position: absolute;
             }
 
             #gif-container{
                 position: fixed;
-                bottom: 10px;
+                bottom: 20px;
                 width: 100%;
+                display: flex;
+                justify-content: center;
             }
             #gif-container img{
                 height: 200px;
@@ -72,8 +86,8 @@
         <script>
 
             let noAttempt=0;
-            let yesSize=22;
-            let noSize=22;
+            let yesSize=24;
+            let noSize=24;
 
             const noGifs=["no1.gif","no2.gif","no3.gif","no4.gif","no5.gif"];
 
@@ -93,6 +107,11 @@
                     if(noSize>8){
                         noBtn.style.fontSize=noSize+"px";
                     }
+
+                    const x =Math.random()*(window.innerWidth-100);
+                    const y =Math.random()*(window.innerHeight-100);
+                    noBtn.style.left=x+"px";
+                    noBtn.style.top=y+"px";
 
                     gif.src=noGifs[noAttempt];
 
