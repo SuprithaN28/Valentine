@@ -1,49 +1,129 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Important Question</title>
+        <title>❤️ Important Question ❤️</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <style>
             body{
+                margin: 0;
+                overflow: hidden;
                 text-align: center;
                 font-family: Arial, Helvetica, sans-serif;
-                margin-top: 100px;
-                background-color: aqua;
+                color :white;
+            }
+
+            video{
+                position: fixed;
+                right: 0;
+                bottom: 0;
+                min-width: 100%;
+                min-height: 100%;
+                object-fit: cover;
+                z-index: -1;
+            }
+
+            h1{
+                margin-top: 80px;
+                font-size: 40px;
             }
 
             button{
                 padding: 15px 30px;
-                font-size: 18px;
+                font-size: 22px;
                 margin: 20px;
                 border: none;
-                border-radius: 10px;
+                border-radius: 12px;
                 cursor: pointer;
+                transition: all 0.3s ease;
             }
 
             #yes{
-                background-color: darkgreen;
-                color: aliceblue;
+                background-color: #ff2e63;
+                color: white;
             }
             #no{
-                background-color: #ccc;
-                position: absolute;
+                background-color: #444;
+                color: white;
+            }
+
+            #gif-container{
+                position: fixed;
+                bottom: 10px;
+                width: 100%;
+            }
+            #gif-container img{
+                height: 200px;
             }
         </style>
     </head>
     <body>
-        <h1>question</h1>
-        <button id="yes" onclick="yesClicked()">YES</button>
-        <button id="no" onmouseover="moveButton()">NO</button>
+
+        <video id="bgVideo" autoplay muted loop>
+            <source src="hearts.mp4" type="video/mp4">
+        </video>
+
+        <h1 id="question">Will u be my valentine..??😘💕</h1>
+        <button id="yes">YES 🙈😍</button>
+        <button id="no">NO 😭💔</button>
+
+        <div id="gif-container">
+            <img id="mainGif" src="romantic.webp">
+        </div>
         <script>
-            function yesClicked(){
-                document.body.innerHTML="<h1>yau<h1>";
+
+            let noAttempt=0;
+            let yesSize=22;
+            let noSize=22;
+
+            const noGifs=["no1.gif","no2.gif","no3.gif","no4.gif","no5.gif"];
+
+            const yesBtn=document.getElementById("yes");
+            const noBtn=document.getElementById("no");
+            const gif=document.getElementById("mainGif");
+            const bgVideo=document.getElementById("bgVideo");
+            const question=document.getElementById("question");
+
+            noBtn.addEventListener("mouseover",function(){
+                if(noAttempt<10){
+                    yesSize+=10;
+                    yesBtn.style.fontSize=yesSize+"px";
+                    yesBtn.style.padding=(yesSize/2)+"px";
+
+                    noSize-=2;
+                    if(noSize>8){
+                        noBtn.style.fontSize=noSize+"px";
+                    }
+
+                    gif.src=noGifs[noAttempt];
+
+                    noAttempt++;
+
+                    if(noAttempt===10){
+                        finalNoScreen();
+                    }
+                }
+            });
+
+            yesBtn.addEventListener("click",function(){
+                bgVideo.src="fireworks.mp4";
+                bgVideo.play();
+                question.innerHTML="YAAYYYY ❤️ Oficially Mine Forever🥰♾️";
+                yesBtn.style.display="none";
+                noBtn.style.display="none";
+
+                gif.src="yes.webp";
+            });
+
+
+            function finalNoScreen(){
+                question.innerHTML="You have no option. WE ARE ALREAY MARRIED...!!💍😆";
+                yesBtn.style.display="none";
+                noBtn.style.display="none";
+
+                gif.src="married.gif";
             }
-            function moveButton(){
-                const button=document.getElementById("no");
-                const x=Math.random()*window.innerWidth;
-                const y=Math.random()*window.innerHeight;
-                button.style.left=x+"px";
-                button.style.top=y+"px";
-            }
+
+
         </script>
     </body>
 </html>
