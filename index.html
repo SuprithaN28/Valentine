@@ -115,10 +115,15 @@
                     }
 
                     noBtn.style.position="fixed";
-                    const maxX=window.innerWidth-noBtn.offsetWidth;
-                    const maxY=window.innerHeight-noBtn.offsetHeight;
-                    const randomX =Math.random()*maxX;
-                    const randomY =Math.random()*maxY;
+                    const margin =20;
+                    const btnWidth=noBtn.offsetWidth;
+                    const btnHeight=noBtn.offsetHeight;
+                    const maxX=window.innerWidth-btnWidth-margin;
+                    const maxY=window.innerHeight-btnHeight-margin;
+                    const minX=margin;
+                    const minY=margin;
+                    const randomX =Math.random()*(maxX-minX)+minX;
+                    const randomY =Math.random()*(maxY-minY)+minY;
                     noBtn.style.left=randomX+"px";
                     noBtn.style.top=randomY+"px";
 
