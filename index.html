@@ -105,9 +105,14 @@
             });
 
             yesBtn.addEventListener("click",function(){
-                bgVideo.src="fireworks.mp4";
-                bgVideo.play();
+                
+                const video=document.getElementById("bgVideo");
+                video.innerHTML='<source src="fireworks.mp4" type="video/mp4">';
+                video.load();
+                video.play();
+
                 question.innerHTML="YAAYYYY ❤️ Oficially Mine Forever🥰♾️";
+
                 yesBtn.style.display="none";
                 noBtn.style.display="none";
 
