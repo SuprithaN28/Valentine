@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Important Question</title>
+        <style>
+            body{
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+                margin-top: 100px;
+                background-color: aqua;
+            }
+
+            button{
+                padding: 15px 30px;
+                font-size: 18px;
+                margin: 20px;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+
+            #yes{
+                background-color: darkgreen;
+                color: aliceblue;
+            }
+            #no{
+                background-color: #ccc;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>question</h1>
+        <button id="yes" onclick="yesClicked()">YES</button>
+        <button id="no" onmouseover="moveButton()">NO</button>
+        <script>
+            function yesClicked(){
+                document.body.innerHTML="<h1>yau<h1>";
+            }
+            function moveButton(){
+                const button=document.getElementById("no");
+                const x=Math.random()*window.innerWidth;
+                const y=Math.random()*window.innerHeight;
+                button.style.left=x+"px";
+                button.style.top=y+"px";
+            }
+        </script>
+    </body>
+</html>
