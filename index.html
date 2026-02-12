@@ -7,14 +7,11 @@
             body{
                 margin: 0;
                 overflow: hidden;
-                text-align: center;
                 display: flex;
-                flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 height: 100vh;
                 font-family: Arial, Helvetica, sans-serif;
-                color :white;
             }
 
             video{
@@ -27,21 +24,33 @@
                 z-index: -1;
             }
 
-            h1{
-                margin-bottom: 40px;
-                font-size: 55px;
-                font-weight: bold;
-                text-shadow: 0 0 15px white, 0 0 25px pink;
+            .container{
+                background: rgba(0,0,0,0.55);
+                backdrop-filter: blur(12px);
+                padding: 50px 60px;
+                border-radius: 25px;
+                text-align: center;
+                position: relative;
+                width: 650 px;
             }
 
-            .button-container{
-                position: relative;
+            h1{
+                margin-bottom: 40px;
+                font-size: 52px;
+                font-weight: 900;
+                color: #ffd700;
+                text-shadow: 0 0 10px black, 0 0 20px #ff69b4;
+            }
+
+            .button-row{
+                display: flex;
+                justify-content: center;
+                gap: 30px;
             }
 
             button{
                 padding: 15px 35px;
-                font-size: 24px;
-                margin: 20px;
+                font-size: 22px;
                 border: none;
                 border-radius: 12px;
                 cursor: pointer;
@@ -53,17 +62,12 @@
                 color: white;
             }
             #no{
-                background-color: #333;
+                background-color: #222;
                 color: white;
-                position: absolute;
             }
 
             #gif-container{
-                position: fixed;
-                bottom: 20px;
-                width: 100%;
-                display: flex;
-                justify-content: center;
+                margin-top: 30px;
             }
             #gif-container img{
                 height: 200px;
@@ -76,18 +80,21 @@
             <source src="hearts.mp4" type="video/mp4">
         </video>
 
+        <div class="container">
         <h1 id="question">Will u be my valentine..??😘💕</h1>
+        <div class="button-row" id="buttonRow">
         <button id="yes">YES 🙈😍</button>
         <button id="no">NO 😭💔</button>
-
-        <div id="gif-container">
+</div>
+        <div class="gif-container">
             <img id="mainGif" src="romantic.webp">
         </div>
+    </div>
         <script>
 
             let noAttempt=0;
-            let yesSize=24;
-            let noSize=24;
+            let yesSize=22;
+            let noSize=22;
 
             const noGifs=["no1.gif","no2.gif","no3.gif","no4.gif","no5.gif"];
 
@@ -99,19 +106,21 @@
 
             noBtn.addEventListener("mouseover",function(){
                 if(noAttempt<10){
-                    yesSize+=10;
+                    yesSize+=8;
                     yesBtn.style.fontSize=yesSize+"px";
-                    yesBtn.style.padding=(yesSize/2)+"px";
 
                     noSize-=2;
-                    if(noSize>8){
+                    if(noSize>10){
                         noBtn.style.fontSize=noSize+"px";
                     }
 
-                    const x =Math.random()*(window.innerWidth-100);
-                    const y =Math.random()*(window.innerHeight-100);
-                    noBtn.style.left=x+"px";
-                    noBtn.style.top=y+"px";
+                    noBtn.style.position="fixed";
+                    const maxX=window.innerWidth-noBtn.offsetWidth;
+                    const maxY=window.innerHeight-noBtn.offsetHeight;
+                    const randomX =Math.random()*maxX;
+                    const randomY =Math.random()*maxY;
+                    noBtn.style.left=randomX+"px";
+                    noBtn.style.top=randomY+"px";
 
                     gif.src=noGifs[noAttempt];
 
@@ -131,18 +140,21 @@
                 video.play();
 
                 question.innerHTML="YAAYYYY ❤️ Oficially Mine Forever🥰♾️";
-
-                yesBtn.style.display="none";
-                noBtn.style.display="none";
+                question.style.color="#00FFCC";
+                buttonRow.style.display="none";
 
                 gif.src="yes.webp";
             });
 
 
             function finalNoScreen(){
+                bgVideo.innerHTML='<source src="marrige.mp4" type="video/mp4">';
+                bgVideo.load();
+                bgVideo.play();
+
                 question.innerHTML="You have no option. WE ARE ALREAY MARRIED...!!💍😆";
-                yesBtn.style.display="none";
-                noBtn.style.display="none";
+                question.style.color="#FF69B4";
+                buttonRow.style.display="none";
 
                 gif.src="married.gif";
             }
