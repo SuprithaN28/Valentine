@@ -23,10 +23,10 @@
 
             video{
                 position: fixed;
-                right: 0;
-                bottom: 0;
-                min-width: 100%;
-                min-height: 100%;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
                 object-fit: cover;
                 z-index: -1;
             }
@@ -88,9 +88,7 @@
     </head>
     <body>
 
-        <video autoplay muted loop id="bgVideo">
-            <source src="hearts.mp4" type="video/mp4">
-        </video>
+        <video autoplay muted loop playsinline webkit-playsinline id="bgVideo" src="hearts.mp4" ></video>
         <div id="weddingPhotos">
             <img id="photo1">
             <img id="photo2">
