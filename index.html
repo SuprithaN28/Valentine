@@ -17,10 +17,7 @@
                 justify-content: center;
                 height: 100vh;
                 text-align: center;
-
-
             }
-
             video{
                 position: fixed;
                 top: 0;
@@ -30,9 +27,6 @@
                 object-fit: cover;
                 z-index: -1;
             }
-
-            
-
             h1{
                 margin-bottom: 20px;
                 font-size: 42px;
@@ -42,11 +36,9 @@
                              0 0 30px #ff69b4;
                 margin-bottom: 20px;
             }
-
            .buttons{
             margin-top: 25px;
            }
-
             button{
                 padding: 12px 30px;
                 font-size: 22px;
@@ -55,7 +47,6 @@
                 border-radius: 8px;
                 cursor: pointer;
             }
-
             #yes{
                 background-color: #ff4da6;
                 color: white;
@@ -67,12 +58,10 @@
             img{
                 border-radius: 15px;
             }
-
             #weddingPhotos{
                 display: none;
                 text-align: center;
             }
-
             #weddingPhotos img{
                 width: 260px;
                 height: 260px;
@@ -81,19 +70,16 @@
                 border-radius: 15px;
                 margin: 10px;
             }
-
             @media(max-width:600px){
                 #weddingPhotos img{
                 width: 170px;
                 height: 170px;
                 }
             }
-
             #mainGif{
                 width: 250px;
                 margin-top: 10px;
             }
-
         </style>
     </head>
     <body>
@@ -155,10 +141,6 @@
                     const btnHeight=noBtn.offsetHeight;
                     const maxX=window.innerWidth-btnWidth-margin;
                     const maxY=window.innerHeight-btnHeight-margin;
-                    // const minX=margin;
-                    // const minY=margin;
-                    // const randomX =Math.random()*(maxX-minX)+minX;
-                    // const randomY =Math.random()*(maxY-minY)+minY;
                     const randomX =Math.random()*maxX;
                     const randomY =Math.random()*maxY;
                     noBtn.style.left=randomX+"px";
@@ -197,21 +179,11 @@
                // question.innerHTML="YAAYYYY ❤️ Officially Mine Forever🥰♾️";
                 typeText(question,"YAAYYYY ❤️ Always and Forever Mine 🥰♾️")
                 question.style.color="#ffffff";
+                question.style.fontSize="42px";
                 buttonRow.style.display="none";
 
                 gif.src="yes.webp";
             });
-
-
-            // function typeText(element,text){
-            //     element.innerHTML="";
-            //     let i=0;
-            //     let interval=setInterval(()=>{
-            //         element.innerHTML+=text[i];
-            //         i++;
-            //         if(i>=text.length) clearInterval(interval);
-            //     },40);
-            // }
 
             function typeText(element,text){
                 element.innerHTML="";
@@ -235,19 +207,12 @@
                 bgVideo.src="finalscreen.mp4";
                 bgVideo.loop=true;
                 bgVideo.play();
-                // bgVideo.innerHTML='<source src="married.mp4" type="video/mp4">';
-                // bgVideo.load();
-
                 photo1.src="m1.jpg";
                 photo2.src="m2.jpg";
-
                 photo1.style.display="inline-block";
                 photo2.style.display="inline-block";
-
                 weddingPhotos.style.display="block";
                 gif.src="married1.webp";
-
-
                 const music =document.getElementById("marriedSong");
                 music.currentTime=0;
                 music.volume=0;
@@ -260,18 +225,12 @@
                     }
                 },200);
                 }).catch(err=>console.log(err));
-                
-
-                //question.innerHTML="You have no option.<br> WE ARE ALREAY MARRIED...!!💍😆";
+            
                 typeText(question," WE ARE ALREADY MARRIED...!!💍😆 <br>No Retuns or Exchanges!! ");
                 question.style.color="#FF69B4";
+                question.style.fontSize="42px";
                 buttonRow.style.display="none";
-
-                
-
             }
-
-
         </script>
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
