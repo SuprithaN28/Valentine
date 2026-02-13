@@ -147,12 +147,7 @@
         
 
             noBtn.addEventListener("mouseover",function(){
-                const marriedSong=document.getElementById("marriedSong");
-                marriedSong.volume=0;
-                
                 noAttempt++;
-                
-                
                 let rect=noBtn.getBoundingClientRect();
                  let oldX=rect.left;
                  let oldY=rect.top;
@@ -163,9 +158,6 @@
                  while(newX===oldX && newY===oldY){
                     const runDistance=Math.random()*600+200;
                     const direction=Math.floor(Math.random()*4);
-
-
-
                  switch(direction){
                     case 0: newY-=runDistance;
                         break;
@@ -175,15 +167,10 @@
                         break;
                     case 3: newX+=runDistance;
                         break;
-
                  }
-
                  newX=Math.max(10,Math.min(window.innerWidth-noBtn.offsetWidth-10,newX));
                  newY=Math.max(10,Math.min(window.innerHeight-noBtn.offsetHeight-10,newY));
-                 }
-
-                 
-
+                }
                  noBtn.style.left=newX+"px";
                     noBtn.style.top=newY+"px";
 
@@ -194,13 +181,17 @@
                     noBtn.innerText=noTexts[noAttempt-1];
                 }
                 if(noAttempt===maxAttempt){
-                        showMarriedScreen();
-                        marriedSong.play().then(()=>{
+                    const marriedSong=document.getElementById("marriedSong");
+                marriedSong.volume=0;
+                 marriedSong.play().then(()=>{
                     marriedSong.pause();
                     marriedSong.currentTime=0;
                 }).catch(()=>{});
+                  showMarriedScreen();
                         return;
                     }
+                      
+                       
 
             });
 
