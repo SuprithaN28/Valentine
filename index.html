@@ -155,19 +155,46 @@
                 bgVideo.loop=true;
                 bgVideo.play();
 
+                confetti({
+                    particleCount:150,
+                    spread: 70,
+                    origin:{y:0.6}
+                });
                 photo1.src="yay.jpg";
                 photo1.style.display="inline-block";
 
                 photo2.style.display="none";
                 weddingPhotos.style.display="block";
 
-                question.innerHTML="YAAYYYY ❤️ Oficially Mine Forever🥰♾️";
+                const music =document.getElementById("bgMusic");
+                music.volume=0;
+                music.play();
+                let fadeIn = setInterval(()=>{
+                    if(music.volume<0.5){
+                        music.volume+=0.05;
+                    }else{
+                        clearInterval(fadeIn);
+                    }
+                },200);
+
+               // question.innerHTML="YAAYYYY ❤️ Officially Mine Forever🥰♾️";
+                typeText(question,"YAAYYYY ❤️ Officially Mine Forever🥰♾️")
                 question.style.color="#ffffff";
                 buttonRow.style.display="none";
 
                 gif.src="yes.webp";
             });
 
+
+            function typeText(element,text){
+                element.innerHTML="";
+                let i=0;
+                let interval=setInterval(()=>{
+                    element.innerHTML+=text[i];
+                    i++;
+                    if(i>=text.length) clearInterval(interval);
+                },40);
+            }
 
             function showMarriedScreen(){
                 bgVideo.src="finalscreen.mp4";
@@ -183,7 +210,8 @@
 
                 weddingPhotos.style.display="block";
 
-                question.innerHTML="You have no option.<br> WE ARE ALREAY MARRIED...!!💍😆";
+                //question.innerHTML="You have no option.<br> WE ARE ALREAY MARRIED...!!💍😆";
+                typeText(question,"You have no option.<br> WE ARE ALREAY MARRIED...!!💍😆")
                 question.style.color="#FF69B4";
                 buttonRow.style.display="none";
 
@@ -192,5 +220,10 @@
 
 
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+        <audio id="bgMusic" preload="auto">
+            <source src="love.mp3" type="audio/mpeg">
+        </audio>
     </body>
 </html>
