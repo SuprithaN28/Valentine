@@ -175,8 +175,10 @@
                  }
                 //  newX=Math.max(10,Math.min(window.innerWidth-noBtn.offsetWidth-10,newX));
                 //  newY=Math.max(10,Math.min(window.innerHeight-noBtn.offsetHeight-10,newY));
-                 newX=Math.max(padding,Math.min(window.innerWidth-noBtn.offsetWidth-padding,newX));
-                 newY=Math.max(padding,Math.min(window.innerHeight-noBtn.offsetHeight-padding,newY));
+                 // newX=Math.max(padding,Math.min(window.innerWidth-noBtn.offsetWidth-padding,newX));
+                 // newY=Math.max(padding,Math.min(window.innerHeight-noBtn.offsetHeight-padding,newY));
+               newX=Math.max(padding,Math.min(document.documentElement.clientWidth-noBtn.offsetWidth-padding,newX));
+                 newY=Math.max(padding,Math.min(document.documentElement.clientHeight-noBtn.offsetHeight-padding,newY));
                 }
                  noBtn.style.left=newX+"px";
                     noBtn.style.top=newY+"px";
