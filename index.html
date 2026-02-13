@@ -6,11 +6,19 @@
             body{
                 margin: 0;
                 padding: 0;
-                text-align: center;
                 background: black;
                 color: white;
                 overflow: hidden;
                 font-family: Arial, Helvetica, sans-serif;
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                text-align: center;
+
+
             }
 
             video{
@@ -26,13 +34,13 @@
             
 
             h1{
-                margin-bottom: 60px;
+                margin-bottom: 20px;
                 font-size: 40px;
                 color: #ffd700;
             }
 
            .buttons{
-            margin-top: 30px;
+            margin-top: 25px;
            }
 
             button{
@@ -45,12 +53,15 @@
             }
 
             #yes{
-                background-color: #ff2e63;
+                background-color: #ff4da6;
                 color: white;
             }
             #no{
                 background-color: white;
                 color: black;
+            }
+            img{
+                width: 250px;
             }
 
         </style>
@@ -63,12 +74,13 @@
 
       
         <h1 id="question">Will u be my valentine..??😘💕</h1>
-        <img id="mainGif" src="romantic.webp">
-
         <div class="button-row" id="buttonRow">
         <button id="yes">YES 🙈😍</button>
         <button id="no">NO 😭💔</button>
 </div>
+        <img id="mainGif" src="romantic.webp">
+
+        
         
         <script>
 
@@ -86,24 +98,30 @@
             const buttonRow=document.getElementById("buttonRow");
 
             noBtn.addEventListener("mouseover",function(){
-                if(noAttempt>maxAttempt)return;
-                gif.src=noGifs[noAttempt];
-                    noAttempt++;
+                noAttempt++;
+                if(noAttempt<=maxAttempt){
+                    gif.src=noGifs[noAttempt-1];
+                }
+                if(noAttempt===maxAttempt){
+                        showMarriedScreen();
+                        return;
+                    }
+                    
                 noBtn.style.position="fixed";
                 const margin =20;
                     const btnWidth=noBtn.offsetWidth;
                     const btnHeight=noBtn.offsetHeight;
                     const maxX=window.innerWidth-btnWidth-margin;
                     const maxY=window.innerHeight-btnHeight-margin;
-                    const minX=margin;
-                    const minY=margin;
-                    const randomX =Math.random()*(maxX-minX)+minX;
-                    const randomY =Math.random()*(maxY-minY)+minY;
+                    // const minX=margin;
+                    // const minY=margin;
+                    // const randomX =Math.random()*(maxX-minX)+minX;
+                    // const randomY =Math.random()*(maxY-minY)+minY;
+                    const randomX =Math.random()*maxX;
+                    const randomY =Math.random()*maxY;
                     noBtn.style.left=randomX+"px";
                     noBtn.style.top=randomY+"px";
-                if(noAttempt===maxAttempt){
-                        setTimeout(showMarriedScreen,500)
-                    }
+                
 
             });
 
@@ -122,7 +140,7 @@
             });
 
 
-            function finalNoScreen(){
+            function showMarriedScreen(){
                 bgVideo.innerHTML='<source src="marrige.mp4" type="video/mp4">';
                 bgVideo.load();
                 bgVideo.play();
