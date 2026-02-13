@@ -149,10 +149,7 @@
             noBtn.addEventListener("mouseover",function(){
                 const marriedSong=document.getElementById("marriedSong");
                 marriedSong.volume=0;
-                marriedSong.play().then(()=>{
-                    marriedSong.pause();
-                    marriedSong.currentTime=0;
-                }).catch(()=>{});
+                
                 noAttempt++;
                 
                 
@@ -198,6 +195,10 @@
                 }
                 if(noAttempt===maxAttempt){
                         showMarriedScreen();
+                        marriedSong.play().then(()=>{
+                    marriedSong.pause();
+                    marriedSong.currentTime=0;
+                }).catch(()=>{});
                         return;
                     }
 
