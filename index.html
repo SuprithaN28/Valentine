@@ -186,12 +186,6 @@
                     noBtn.innerText=noTexts[noAttempt-1];
                 }
                 if(noAttempt===maxAttempt){
-                    const marriedSong=document.getElementById("marriedSong");
-                marriedSong.volume=0;
-                 marriedSong.play().then(()=>{
-                    marriedSong.pause();
-                    marriedSong.currentTime=0;
-                }).catch(()=>{});
                   showMarriedScreen();
                         return;
                     }
@@ -256,7 +250,17 @@
             }
 
             function showMarriedScreen(){
-
+                const marriedSong=document.getElementById("marriedSong");
+                    marriedSong.currentTime=0;
+                marriedSong.volume=1;
+                 marriedSong.play().catch(()=>{}); 
+                 let fadeIn = setInterval(()=>{
+                    if(marriedSong.volume<0.5){
+                        marriedSong.volume+=0.05;
+                    }else{
+                        clearInterval(fadeIn);
+                    }
+                },200); 
                 typeText(question," WE ARE ALREADY MARRIED...!!💍😆 <br>No Retuns or Exchanges!! ");
                 question.style.color="#FF69B4";
                 question.style.fontSize="42px";
@@ -271,10 +275,7 @@
                 photo2.style.display="inline-block";
                 weddingPhotos.style.display="block";
                 gif.src="married1.webp";
-                const marriedSong =document.getElementById("marriedSong");
-                music.currentTime=0;
-                music.volume=1;
-                marriedSong.play().catch(()=>{});   
+                
             }
 
             window.onload=()=>{
