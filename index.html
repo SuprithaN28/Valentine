@@ -234,6 +234,11 @@
             }
 
             function showMarriedScreen(){
+
+                const question=document.getElementById("question");
+                question.innerHTML="";
+                buttonRow.style.display="none";
+
                 bgVideo.src="finalscreen.mp4";
                 bgVideo.loop=true;
                 bgVideo.play();
@@ -243,19 +248,6 @@
                 photo2.style.display="inline-block";
                 weddingPhotos.style.display="block";
                 gif.src="married1.webp";
-                // const music =document.getElementById("marriedSong");
-                // music.currentTime=0;
-                // music.volume=0;
-                // music.play().then(()=>{
-                //     let fadeIn = setInterval(()=>{
-                //     if(music.volume<0.5){
-                //         music.volume+=0.05;
-                //     }else{
-                //         clearInterval(fadeIn);
-                //     }
-                // },200);
-                // }).catch(err=>console.log(err));
-
                 const marriedSong =document.getElementById("marriedSong");
                 music.currentTime=0;
                 music.volume=1;
@@ -265,7 +257,7 @@
                 question.style.color="#FF69B4";
                 question.style.fontSize="42px";
                 question.style.animation="pulseGlow 1.5s infinite ease-in-out";
-                buttonRow.style.display="none";
+                
             }
         </script>
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
