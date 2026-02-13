@@ -103,10 +103,11 @@
             <img id="photo1">
             <img id="photo2">
         </div>
-        <h1 id="question">Two beautiful valentine's completed.🧡💜</h1>
-        <h1 id="question">Bubuuuu will u be my valentine again..??😘🩵</h1>
-        <h1 id="question">Select YES For Lifetime Subscription...??😌🌹</h1>
-        
+        <div id="question">
+        <h1 >Two beautiful valentine's completed.🧡💜</h1>
+        <h1 >Bubuuuu will u be my valentine again..??😘🩵</h1>
+        <h1 >Select YES For Lifetime Subscription...??😌🌹</h1>
+        </div>
         <div class="button-row" id="buttonRow">
         <button id="yes">YES 😍💞</button>
         <button id="no">NO 😭💔</button>
@@ -245,16 +246,21 @@
 
                 weddingPhotos.style.display="block";
                 gif.src="married1.webp";
+
+
                 const music =document.getElementById("marriedSong");
+                music.currentTime=0;
                 music.volume=0;
-                music.play();
-                let fadeIn = setInterval(()=>{
+                music.play().then(()=>{
+                    let fadeIn = setInterval(()=>{
                     if(music.volume<0.5){
                         music.volume+=0.05;
                     }else{
                         clearInterval(fadeIn);
                     }
                 },200);
+                }).catch(err=>console.log(err));
+                
 
                 //question.innerHTML="You have no option.<br> WE ARE ALREAY MARRIED...!!💍😆";
                 typeText(question," WE ARE ALREADY MARRIED...!!💍😆 <br>No Retuns or Exchanges!! ");
@@ -272,7 +278,7 @@
         <audio id="bgMusic" preload="auto">
             <source src="love.mp3" type="audio/mpeg">
         </audio>
-        <audio id="marriedSong" preload="auto">
+        <audio id="marriedSong" loop>
             <source src="sadfunny.mp3" type="audio/mpeg">
         </audio>
     </body>
