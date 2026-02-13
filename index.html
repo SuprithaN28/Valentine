@@ -35,8 +35,12 @@
 
             h1{
                 margin-bottom: 20px;
-                font-size: 40px;
-                color: #ffd700;
+                font-size: 42px;
+                color: #ffffff;
+                text-shadow: 0 0 10px #ff1493,
+                             0 0 20px #ff1493,
+                             0 0 30px #ff69b4;
+                margin-bottom: 20px;
             }
 
            .buttons{
@@ -57,11 +61,27 @@
                 color: white;
             }
             #no{
-                background-color: white;
-                color: black;
+                background-color: #333;
+                color: white;
             }
             img{
+                border-radius: 15px;
+            }
+
+            #weddingPhoto{
+                display: none;
+                margin-bottom: 20px;
+            }
+
+            #weddingPhotos img{
+                width: 220px;
+                margin: 10px;
+                border-radius: 15px;
+            }
+
+            #mainGif{
                 width: 250px;
+                margin-top: 10px;
             }
 
         </style>
@@ -71,7 +91,10 @@
         <video autoplay muted loop id="bgVideo">
             <source src="hearts.mp4" type="video/mp4">
         </video>
-
+        <div id="weddingPhotos">
+            <img id="photo1">
+            <img id="photo2">
+        </div>
       
         <h1 id="question">Will u be my valentine..??😘💕</h1>
         <div class="button-row" id="buttonRow">
@@ -88,7 +111,7 @@
             const maxAttempt=10;
          
 
-            const noGifs=["no1.gif","no2.gif","no3.gif","no4.gif","no5.gif","no6.gif","no7.gif","no8.gif","no9.gif","no10.gif"];
+            const noGifs=["no1.gif","no2.gif","no3.gif","no4.gif","no5.gif","no6.webp","no7.webp","no8.webp","no9.webp","no10.webp"];
 
             const yesBtn=document.getElementById("yes");
             const noBtn=document.getElementById("no");
@@ -96,6 +119,10 @@
             const bgVideo=document.getElementById("bgVideo");
             const question=document.getElementById("question");
             const buttonRow=document.getElementById("buttonRow");
+            const weddingPhotos= document.getElementById("weddingPhotos");
+            const photo1=document.getElementById("photo1");
+            const photo2=document.getElementById("photo2");
+        
 
             noBtn.addEventListener("mouseover",function(){
                 noAttempt++;
@@ -132,8 +159,14 @@
                 video.load();
                 video.play();
 
+                photo1.src="yay.jpg";
+                photo1.style.display="inline-block";
+
+                photo2.style.display="none";
+                weddingPhotos.style.display="block";
+
                 question.innerHTML="YAAYYYY ❤️ Oficially Mine Forever🥰♾️";
-                question.style.color="#00FFCC";
+                question.style.color="#ffffff";
                 buttonRow.style.display="none";
 
                 gif.src="yes.webp";
@@ -146,9 +179,15 @@
                 bgVideo.play();
                 // bgVideo.innerHTML='<source src="married.mp4" type="video/mp4">';
                 // bgVideo.load();
-                
+                photo1.src="m1.jpg";
+                photo2.src="m2.jpg";
 
-                question.innerHTML="You have no option. WE ARE ALREAY MARRIED...!!💍😆";
+                photo1.style.display="inline-block";
+                photo2.style.display="inline-block";
+
+                weddingPhotos.style.display="block";
+
+                question.innerHTML="You have no option.<br> WE ARE ALREAY MARRIED...!!💍😆";
                 question.style.color="#FF69B4";
                 buttonRow.style.display="none";
 
