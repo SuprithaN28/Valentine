@@ -234,8 +234,12 @@
             }
 
             function showMarriedScreen(){
-                buttonRow.style.display="none";
 
+                typeText(question," WE ARE ALREADY MARRIED...!!💍😆 <br>No Retuns or Exchanges!! ");
+                question.style.color="#FF69B4";
+                question.style.fontSize="42px";
+                question.style.animation="pulseGlow 1.5s infinite ease-in-out";
+                buttonRow.style.display="none";
                 bgVideo.src="finalscreen.mp4";
                 bgVideo.loop=true;
                 bgVideo.play();
@@ -250,10 +254,7 @@
                 music.volume=1;
                 marriedSong.play().catch(()=>{});
             
-                typeText(question," WE ARE ALREADY MARRIED...!!💍😆 <br>No Retuns or Exchanges!! ");
-                question.style.color="#FF69B4";
-                question.style.fontSize="42px";
-                question.style.animation="pulseGlow 1.5s infinite ease-in-out";
+                
                 
             }
         </script>
