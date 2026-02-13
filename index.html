@@ -80,6 +80,29 @@
                 width: 250px;
                 margin-top: 10px;
             }
+
+            @keyframes pulseGlow {
+                0%{
+                    text-shadow: 
+                    0 0 10px #ff1493,
+                    0 0 20px #ff1493,
+                    0 0 30px #ff69b4;
+                }
+                50%{
+                    text-shadow: 
+                    0 0 20px #ff69b4,
+                    0 0 40px #ff69b4,
+                    0 0 60px #ff69b4;
+                }
+                100%{
+                    text-shadow: 
+                    0 0 10px #ff1493,
+                    0 0 20px #ff1493,
+                    0 0 30px #ff69b4;
+                }
+
+                
+            }
         </style>
     </head>
     <body>
@@ -180,6 +203,7 @@
                 typeText(question,"YAAYYYY ❤️ Always and Forever Mine 🥰♾️")
                 question.style.color="#ffffff";
                 question.style.fontSize="42px";
+                question.style.animation="pulseGlow 1.5s infinite ease-in-out";
                 buttonRow.style.display="none";
 
                 gif.src="yes.webp";
@@ -229,6 +253,7 @@
                 typeText(question," WE ARE ALREADY MARRIED...!!💍😆 <br>No Retuns or Exchanges!! ");
                 question.style.color="#FF69B4";
                 question.style.fontSize="42px";
+                question.style.animation="pulseGlow 1.5s infinite ease-in-out";
                 buttonRow.style.display="none";
             }
         </script>
