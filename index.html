@@ -86,7 +86,7 @@
             const buttonRow=document.getElementById("buttonRow");
 
             noBtn.addEventListener("mouseover",function(){
-                if(noAttempt>=maxAttempt)return;
+                if(noAttempt>maxAttempt)return;
                 gif.src=noGifs[noAttempt];
                     noAttempt++;
                 noBtn.style.position="fixed";
