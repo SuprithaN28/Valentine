@@ -150,8 +150,17 @@
             const photo1=document.getElementById("photo1");
             const photo2=document.getElementById("photo2");
         
-
-            noBtn.addEventListener("mouseover",function(){
+            
+            noBtn.addEventListener("mouseover",moveButton());
+            noBtn.addEventListener("touchstart",(e)=>{e.preventDefault()});
+            noBtn.addEventListener("click",()=>{
+                if(noAttempt>=10){
+                    showMarriedScreen();
+                }else{
+                    moveButton();
+                }
+            });
+            function moveButton(){
                 noAttempt++;
                 let rect=noBtn.getBoundingClientRect();
                  let oldX=rect.left;
@@ -175,10 +184,10 @@
                  }
                 //  newX=Math.max(10,Math.min(window.innerWidth-noBtn.offsetWidth-10,newX));
                 //  newY=Math.max(10,Math.min(window.innerHeight-noBtn.offsetHeight-10,newY));
-                 // newX=Math.max(padding,Math.min(window.innerWidth-noBtn.offsetWidth-padding,newX));
-                 // newY=Math.max(padding,Math.min(window.innerHeight-noBtn.offsetHeight-padding,newY));
-               newX=Math.max(padding,Math.min(document.documentElement.clientWidth-noBtn.offsetWidth-padding,newX));
-                 newY=Math.max(padding,Math.min(document.documentElement.clientHeight-noBtn.offsetHeight-padding,newY));
+                 newX=Math.max(padding,Math.min(window.innerWidth-noBtn.offsetWidth-padding,newX));
+                  newY=Math.max(padding,Math.min(window.innerHeight-noBtn.offsetHeight-padding,newY));
+            //    newX=Math.max(padding,Math.min(document.documentElement.clientWidth-noBtn.offsetWidth-padding,newX));
+            //      newY=Math.max(padding,Math.min(document.documentElement.clientHeight-noBtn.offsetHeight-padding,newY));
                 }
                  noBtn.style.left=newX+"px";
                     noBtn.style.top=newY+"px";
@@ -212,7 +221,7 @@
                       
                        
 
-            });
+            }
 
             yesBtn.addEventListener("click",function(){
                 bgVideo.src="firework.mp4";
