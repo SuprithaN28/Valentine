@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>❤️ Important Question ❤️</title>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>❤️ Valentine ❤️</title>
         <style>
             body{
                 margin: 0;
+                padding: 0;
+                text-align: center;
+                background: black;
+                color: white;
                 overflow: hidden;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
                 font-family: Arial, Helvetica, sans-serif;
             }
 
@@ -24,37 +23,25 @@
                 z-index: -1;
             }
 
-            .container{
-                background: rgba(0,0,0,0.55);
-                backdrop-filter: blur(12px);
-                padding: 50px 60px;
-                border-radius: 25px;
-                text-align: center;
-                position: relative;
-                width: 650 px;
-            }
+            
 
             h1{
-                margin-bottom: 40px;
-                font-size: 52px;
-                font-weight: 900;
+                margin-bottom: 60px;
+                font-size: 40px;
                 color: #ffd700;
-                text-shadow: 0 0 10px black, 0 0 20px #ff69b4;
             }
 
-            .button-row{
-                display: flex;
-                justify-content: center;
-                gap: 30px;
-            }
+           .buttons{
+            margin-top: 30px;
+           }
 
             button{
-                padding: 15px 35px;
+                padding: 12px 30px;
                 font-size: 22px;
                 border: none;
-                border-radius: 12px;
+                margin: 10px;
+                border-radius: 8px;
                 cursor: pointer;
-                transition: all 0.3s ease;
             }
 
             #yes{
@@ -62,39 +49,32 @@
                 color: white;
             }
             #no{
-                background-color: #222;
-                color: white;
+                background-color: white;
+                color: black;
             }
 
-            #gif-container{
-                margin-top: 30px;
-            }
-            #gif-container img{
-                height: 200px;
-            }
         </style>
     </head>
     <body>
 
-        <video id="bgVideo" autoplay muted loop playsinline>
+        <video autoplay muted loop id="bgVideo">
             <source src="hearts.mp4" type="video/mp4">
         </video>
 
-        <div class="container">
+      
         <h1 id="question">Will u be my valentine..??😘💕</h1>
+        <img id="mainGif" src="romantic.webp">
+
         <div class="button-row" id="buttonRow">
         <button id="yes">YES 🙈😍</button>
         <button id="no">NO 😭💔</button>
 </div>
-        <div class="gif-container">
-            <img id="mainGif" src="romantic.webp">
-        </div>
-    </div>
+        
         <script>
 
             let noAttempt=0;
-            let yesSize=22;
-            let noSize=22;
+            const maxAttempt=10;
+         
 
             const noGifs=["no1.gif","no2.gif","no3.gif","no4.gif","no5.gif"];
 
@@ -103,19 +83,14 @@
             const gif=document.getElementById("mainGif");
             const bgVideo=document.getElementById("bgVideo");
             const question=document.getElementById("question");
+            const buttonRow=document.getElementById("buttonRow");
 
             noBtn.addEventListener("mouseover",function(){
-                if(noAttempt<10){
-                    yesSize+=8;
-                    yesBtn.style.fontSize=yesSize+"px";
-
-                    noSize-=2;
-                    if(noSize>10){
-                        noBtn.style.fontSize=noSize+"px";
-                    }
-
-                    noBtn.style.position="fixed";
-                    const margin =20;
+                if(noAttempt>=maxAttempt)return;
+                gif.src=noGifs[noAttempt];
+                    noAttempt++;
+                noBtn.style.position="fixed";
+                const margin =20;
                     const btnWidth=noBtn.offsetWidth;
                     const btnHeight=noBtn.offsetHeight;
                     const maxX=window.innerWidth-btnWidth-margin;
@@ -126,15 +101,10 @@
                     const randomY =Math.random()*(maxY-minY)+minY;
                     noBtn.style.left=randomX+"px";
                     noBtn.style.top=randomY+"px";
-
-                    gif.src=noGifs[noAttempt];
-
-                    noAttempt++;
-
-                    if(noAttempt===10){
-                        finalNoScreen();
+                if(noAttempt===maxAttempt){
+                        setTimeout(showMarriedScreen,500)
                     }
-                }
+
             });
 
             yesBtn.addEventListener("click",function(){
