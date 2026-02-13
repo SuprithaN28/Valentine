@@ -75,8 +75,8 @@
             }
 
             #weddingPhotos img{
-                width: 250px;
-                height: auto;
+                width: 260px;
+                height: 260px;
                 object-fit: contain;
                 border-radius: 15px;
             }
@@ -199,14 +199,32 @@
             });
 
 
+            // function typeText(element,text){
+            //     element.innerHTML="";
+            //     let i=0;
+            //     let interval=setInterval(()=>{
+            //         element.innerHTML+=text[i];
+            //         i++;
+            //         if(i>=text.length) clearInterval(interval);
+            //     },40);
+            // }
+
             function typeText(element,text){
                 element.innerHTML="";
                 let i=0;
-                let interval=setInterval(()=>{
-                    element.innerHTML+=text[i];
-                    i++;
-                    if(i>=text.length) clearInterval(interval);
-                },40);
+                function type(){
+                    if(i<text.length){
+                        if(text.substring(i,i+4)==="<br>"){
+                            element.innerHTML+="<br>";
+                            i+=4;
+                        }else{
+                            element.innerHTML+=text[i];
+                            i++;
+                        }
+                        setTimeout(type,40);
+                    }
+                }
+                type();
             }
 
             function showMarriedScreen(){
