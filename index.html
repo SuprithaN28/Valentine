@@ -56,6 +56,9 @@
                 color: white;
                 position: fixed;
                 transition: left 0.3s ease,top 0.3s ease;
+                min-width: 60px;
+                min-height: 60px;
+                touch-action: manipulation;
             }
             img{
                 border-radius: 15px;
@@ -151,7 +154,7 @@
                 let rect=noBtn.getBoundingClientRect();
                  let oldX=rect.left;
                  let oldY=rect.top;
-
+                    const padding=20;
                  let newX=oldX;
                  let newY=oldY;
 
@@ -168,8 +171,10 @@
                     case 3: newX+=runDistance;
                         break;
                  }
-                 newX=Math.max(10,Math.min(window.innerWidth-noBtn.offsetWidth-10,newX));
-                 newY=Math.max(10,Math.min(window.innerHeight-noBtn.offsetHeight-10,newY));
+                //  newX=Math.max(10,Math.min(window.innerWidth-noBtn.offsetWidth-10,newX));
+                //  newY=Math.max(10,Math.min(window.innerHeight-noBtn.offsetHeight-10,newY));
+                 newX=Math.max(padding,Math.min(window.innerWidth-noBtn.offsetWidth-padding,newX));
+                 newY=Math.max(padding,Math.min(window.innerHeight-noBtn.offsetHeight-padding,newY));
                 }
                  noBtn.style.left=newX+"px";
                     noBtn.style.top=newY+"px";
