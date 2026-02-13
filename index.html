@@ -71,14 +71,11 @@
             #weddingPhotos{
                 display: none;
                 margin-bottom: 20px;
-                justify-content: center;
-                align-items: center;
-                gap: 20px;
+                text-align: center;
             }
 
             #weddingPhotos img{
-                width: 220px;
-                max-width: 300px;
+                width: 250px;
                 height: auto;
                 object-fit: contain;
                 border-radius: 15px;
@@ -86,8 +83,8 @@
 
             @media(max-width:600px){
                 #weddingPhotos img{
-                width: 140px;
-                height: 140px;
+                width: 160px;
+                height: auto;
                 }
             }
 
@@ -227,7 +224,7 @@
                 weddingPhotos.style.display="block";
 
                 //question.innerHTML="You have no option.<br> WE ARE ALREAY MARRIED...!!💍😆";
-                typeText(question,"You have no option.<br> WE ARE ALREAY MARRIED...!!💍😆")
+                typeText(question,"You have no option.<br> WE ARE ALREAY MARRIED...!!💍😆");
                 question.style.color="#FF69B4";
                 buttonRow.style.display="none";
 
