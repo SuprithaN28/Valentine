@@ -173,8 +173,8 @@
 
                  }
 
-                 newX=Math.max(20,Math.mim(window.innerWidth-noBtn.offsetWidth-20,newX));
-                 newY=Math.max(20,Math.mim(window.innerHeight-noBtn.offsetHeight-20,newY));
+                 newX=Math.max(20,Math.min(window.innerWidth-noBtn.offsetWidth-20,newX));
+                 newY=Math.max(20,Math.min(window.innerHeight-noBtn.offsetHeight-20,newY));
 
                  noBtn.style.left=newX+"px";
                     noBtn.style.top=newY+"px";
