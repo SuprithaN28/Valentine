@@ -71,7 +71,6 @@
             #weddingPhotos{
                 display: none;
                 margin-bottom: 20px;
-                display: flex;
                 justify-content: center;
                 align-items: center;
                 gap: 20px;
@@ -79,8 +78,9 @@
 
             #weddingPhotos img{
                 width: 220px;
-                height: 220px;
-                object-fit: cover;
+                max-width: 300px;
+                height: auto;
+                object-fit: contain;
                 border-radius: 15px;
             }
 
