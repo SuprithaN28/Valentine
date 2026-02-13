@@ -54,6 +54,7 @@
             #no{
                 background-color: #333;
                 color: white;
+                transition: left 0.25s ease,top 0.25s ease;
             }
             img{
                 border-radius: 15px;
@@ -153,6 +154,31 @@
                 }).catch(()=>{});
                 noAttempt++;
 
+                const runDistance=150+noAttempt*10;
+                const rect=noBtn.getBoundingClientRect();
+                 let newX=rect.left;
+                 let newY=rect.top;
+
+                 const direction=Math.floor(Math.random()*4);
+
+                 switch(direction){
+                    case 0: newY-=runDistance;
+                        break;
+                    case 1: newY+=runDistance;
+                        break;
+                    case 2: newX-=runDistance;
+                        break;
+                    case 3: newX+=runDistance;
+                        break;
+
+                 }
+
+                 newX=Math.max(20,Math.mim(window.innerWidth-noBtn.offsetWidth-20,newX));
+                 newY=Math.max(20,Math.mim(window.innerHeight-noBtn.offsetHeight-20,newY));
+
+                 noBtn.style.left=newX+"px";
+                    noBtn.style.top=newY+"px";
+
                 if(noAttempt<=maxAttempt){
                     gif.src=noGifs[noAttempt-1];
                 }
@@ -163,18 +189,6 @@
                         showMarriedScreen();
                         return;
                     }
-                    
-                noBtn.style.position="fixed";
-                const margin =20;
-                    const btnWidth=noBtn.offsetWidth;
-                    const btnHeight=noBtn.offsetHeight;
-                    const maxX=window.innerWidth-btnWidth-margin;
-                    const maxY=window.innerHeight-btnHeight-margin;
-                    const randomX =Math.random()*maxX;
-                    const randomY =Math.random()*maxY;
-                    noBtn.style.left=randomX+"px";
-                    noBtn.style.top=randomY+"px";
-                
 
             });
 
