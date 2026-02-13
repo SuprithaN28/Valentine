@@ -141,9 +141,12 @@
 
 
             function showMarriedScreen(){
-                bgVideo.innerHTML='<source src="hearts.mp4" type="video/mp4">';
-                bgVideo.load();
+                bgVideo.src="finalscreen.mp4";
+                bgVideo.loop=true;
                 bgVideo.play();
+                // bgVideo.innerHTML='<source src="married.mp4" type="video/mp4">';
+                // bgVideo.load();
+                
 
                 question.innerHTML="You have no option. WE ARE ALREAY MARRIED...!!💍😆";
                 question.style.color="#FF69B4";
