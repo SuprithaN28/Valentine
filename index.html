@@ -103,8 +103,9 @@
             <img id="photo1">
             <img id="photo2">
         </div>
-      
-        <h1 id="question">Bubuuuu Will u be my valentine..??😘🩵</h1>
+        <h1 id="question">Two successful valentine's completed.🧡💜</h1>
+        <h1 id="question">Approve Forever Lifetime Subscription...??</h1>
+        <h1 id="question">Bubuuuu will u be my valentine..??😘🩵</h1>
         <div class="button-row" id="buttonRow">
         <button id="yes">YES 😍💞</button>
         <button id="no">NO 😭💔</button>
@@ -120,7 +121,7 @@
          
 
             const noGifs=["no1.gif","no2.gif","no3.gif","no4.gif","no5.gif","no6.webp","no7.webp","no8.webp","no9.webp","no10.webp"];
-            const noTexts=["That better be a mistake😐","Really?⚔️","Why are u like this?😤","Think again🧐","Be Serious Now🙄","Bubuuuu Say Yes🥺","Not Crying😣","Ok I Give Up😭","Last Chance!!🔫"]
+            const noTexts=["Wrong button SIR😐","Really?⚔️","Why are u like this?😤","Think again🧐","Be Serious Now🙄","Bubuuuu Say Yes🥺","Not Crying😣","Ok I Give Up😭","Last Chance!!🔫"]
             const yesBtn=document.getElementById("yes");
             const noBtn=document.getElementById("no");
             const gif=document.getElementById("mainGif");
@@ -192,7 +193,7 @@
                 },200);
 
                // question.innerHTML="YAAYYYY ❤️ Officially Mine Forever🥰♾️";
-                typeText(question,"YAAYYYY ❤️ Officially Mine Forever🥰♾️")
+                typeText(question,"YAAYYYY ❤️ Always and Forever Mine 🥰♾️")
                 question.style.color="#ffffff";
                 buttonRow.style.display="none";
 
@@ -234,6 +235,7 @@
                 bgVideo.play();
                 // bgVideo.innerHTML='<source src="married.mp4" type="video/mp4">';
                 // bgVideo.load();
+
                 photo1.src="m1.jpg";
                 photo2.src="m2.jpg";
 
@@ -241,13 +243,25 @@
                 photo2.style.display="inline-block";
 
                 weddingPhotos.style.display="block";
+                gif.src="married1.webp";
+                const music =document.getElementById("marriedSong");
+                music.volume=0;
+                music.play();
+                let fadeIn = setInterval(()=>{
+                    if(music.volume<0.5){
+                        music.volume+=0.05;
+                    }else{
+                        clearInterval(fadeIn);
+                    }
+                },200);
 
                 //question.innerHTML="You have no option.<br> WE ARE ALREAY MARRIED...!!💍😆";
-                typeText(question,"You have no option😏😎.<br> WE ARE ALREADY MARRIED...!!💍😆");
+                typeText(question," WE ARE ALREADY MARRIED...!!💍😆 <br>No Retuns or Exchanges!! ");
                 question.style.color="#FF69B4";
                 buttonRow.style.display="none";
 
-                gif.src="married1.webp";
+                
+
             }
 
 
@@ -256,6 +270,9 @@
 
         <audio id="bgMusic" preload="auto">
             <source src="love.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="marriedSong" preload="auto">
+            <source src="sadfunny.mp3" type="audio/mpeg">
         </audio>
     </body>
 </html>
