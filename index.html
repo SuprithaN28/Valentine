@@ -117,7 +117,7 @@
         <div id="question">
         <h1 >Two beautiful valentine's completed.🧡💜</h1>
         <h1 >Bubuuuu will u be my valentine again..??😘🩵</h1>
-        <h1 >Select YES For Lifetime Subscription...??😌🌹</h1>
+        <h1 >Select YES For Lifetime Subscription...😌🌹</h1>
         </div>
         <div class="button-row" id="buttonRow">
         <button id="yes">YES 😍💞</button>
@@ -154,13 +154,20 @@
                     marriedSong.currentTime=0;
                 }).catch(()=>{});
                 noAttempt++;
+                
+                
+                let rect=noBtn.getBoundingClientRect();
+                 let oldX=rect.left;
+                 let oldY=rect.top;
 
-                const runDistance=Math.random()*500+300;
-                const rect=noBtn.getBoundingClientRect();
-                 let newX=rect.left;
-                 let newY=rect.top;
+                 let newX=oldX;
+                 let newY=oldY;
 
-                 const direction=Math.floor(Math.random()*4);
+                 while(newX===oldX && newY===oldY){
+                    const runDistance=Math.random()*600+200;
+                    const direction=Math.floor(Math.random()*4);
+
+
 
                  switch(direction){
                     case 0: newY-=runDistance;
@@ -176,6 +183,9 @@
 
                  newX=Math.max(10,Math.min(window.innerWidth-noBtn.offsetWidth-10,newX));
                  newY=Math.max(10,Math.min(window.innerHeight-noBtn.offsetHeight-10,newY));
+                 }
+
+                 
 
                  noBtn.style.left=newX+"px";
                     noBtn.style.top=newY+"px";
