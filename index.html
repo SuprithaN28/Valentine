@@ -122,7 +122,7 @@
          
 
             const noGifs=["no1.gif","no2.gif","no3.gif","no4.gif","no5.gif","no6.webp","no7.webp","no8.webp","no9.webp","no10.webp"];
-
+            const noTexts=["That better be a mistake😐","Really?⚔️","Why are u like this?😤","Think again🧐","Be Serious Now🙄","Pleaseee Say Yes🥺","Not Crying😣","Ok I Give Up😭","Last Chance!!🔫"]
             const yesBtn=document.getElementById("yes");
             const noBtn=document.getElementById("no");
             const gif=document.getElementById("mainGif");
@@ -136,8 +136,12 @@
 
             noBtn.addEventListener("mouseover",function(){
                 noAttempt++;
+
                 if(noAttempt<=maxAttempt){
                     gif.src=noGifs[noAttempt-1];
+                }
+                if(noAttempt<=noTexts.length){
+                    noBtn.innerText=noTexts[noAttempt-1];
                 }
                 if(noAttempt===maxAttempt){
                         showMarriedScreen();
