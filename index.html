@@ -155,7 +155,7 @@
                 }).catch(()=>{});
                 noAttempt++;
 
-                const runDistance=120+noAttempt*10;
+                const runDistance=Math.random()*500+300;
                 const rect=noBtn.getBoundingClientRect();
                  let newX=rect.left;
                  let newY=rect.top;
